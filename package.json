@@ -3,42 +3,46 @@
 	"version": "0.0.1",
 	"private": false,
 	"description": "Enables DWARF debugging of webassembly in js-debug",
-	"homepage": "https://github.com/CodeEditorLand/Foundation#readme",
+	"keywords": [
+		"land"
+	],
+	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/LandDwarfDebugging#readme",
 	"bugs": {
-		"url": "https://github.com/CodeEditorLand/Foundation/issues"
+		"url": "HTTPS://GitHub.Com/CodeEditorLand/LandDwarfDebugging/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/CodeEditorLand/Foundation.git"
+		"url": "git+HTTPS://github.com/CodeEditorLand/LandDwarfDebugging.git"
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"author": {
-		"name": "Playform",
-		"email": "Hello@Playform.Cloud",
-		"url": "https://playform.cloud"
+		"name": "🌆 — Land —",
+		"email": "Land@PlayForm.Cloud",
+		"url": "HTTPS://Land.PlayForm.Cloud"
 	},
 	"type": "module",
 	"main": "dist/index.js",
 	"scripts": {
+		"Document": "Document 'Source/**/*.ts'",
 		"build": "npm run build-native-ext-image && npm run copy-out-native-ext && npm run build-meta",
 		"build-meta": "rimraf dist && node esbuild.js && tsc src/index.ts --target es2021 --declaration --emitDeclarationOnly --outDir dist",
 		"build-native-ext-image": "docker build -t cxx-debug-extension ./chrome-cxx",
 		"copy-out-native-ext": "docker run -v ./chrome-cxx/mnt:/mnt cxx-debug-extension /bin/sh /mnt/do-copy.sh",
 		"prepack": "npm run build-meta",
-		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'"
+		"prepublishOnly": "Build 'Source/**/*.ts'"
 	},
 	"dependencies": {
-		"ws": "8.16.0"
+		"ws": "8.17.0"
 	},
 	"devDependencies": {
 		"@chialab/esbuild-plugin-meta-url": "0.18.2",
+		"@playform/build": "0.0.7",
+		"@playform/document": "0.0.6",
 		"@types/emscripten": "1.39.10",
-		"@types/node": "20.11.30",
+		"@types/node": "20.12.7",
 		"esbuild": "0.20.2",
 		"rimraf": "5.0.5",
-		"tsx": "4.7.1",
-		"typescript": "5.4.2",
-		"typescript-esbuild": "0.4.5"
+		"tsx": "4.8.2"
 	},
 	"publishConfig": {
 		"access": "public"

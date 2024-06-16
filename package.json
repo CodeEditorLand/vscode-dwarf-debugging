@@ -10,7 +10,7 @@
 		"prepack": "npm run build-meta"
 	},
 	"dependencies": {
-		"ws": "^8.17.0"
+		"ws": "^8.17.1"
 	},
 	"devDependencies": {
 		"@chialab/esbuild-plugin-meta-url": "^0.18.2",

@@ -1,17 +1,8 @@
 {
-	"name": "@vscode/dwarf-debugging",
-	"description": "Enables DWARF debugging of webassembly in js-debug",
-	"main": "dist/index.js",
-	"scripts": {
-		"build": "npm run build-native-ext-image && npm run copy-out-native-ext && npm run build-meta",
-		"build-meta": "rimraf dist && node esbuild.js && tsc src/index.ts --target es2021 --declaration --emitDeclarationOnly --outDir dist",
-		"build-native-ext-image": "docker build -t cxx-debug-extension ./chrome-cxx",
-		"copy-out-native-ext": "docker run -v ./chrome-cxx/mnt:/mnt cxx-debug-extension /bin/sh /mnt/do-copy.sh",
-		"prepack": "npm run build-meta"
-	},
 	"dependencies": {
 		"ws": "8.14.1"
 	},
+	"description": "Enables DWARF debugging of webassembly in js-debug",
 	"devDependencies": {
 		"@chialab/esbuild-plugin-meta-url": "0.17.7",
 		"@types/emscripten": "1.39.7",
@@ -19,5 +10,14 @@
 		"esbuild": "0.19.2",
 		"rimraf": "5.0.1",
 		"tsx": "3.12.10"
+	},
+	"main": "dist/index.js",
+	"name": "@vscode/dwarf-debugging",
+	"scripts": {
+		"build": "npm run build-native-ext-image && npm run copy-out-native-ext && npm run build-meta",
+		"build-meta": "rimraf dist && node esbuild.js && tsc src/index.ts --target es2021 --declaration --emitDeclarationOnly --outDir dist",
+		"build-native-ext-image": "docker build -t cxx-debug-extension ./chrome-cxx",
+		"copy-out-native-ext": "docker run -v ./chrome-cxx/mnt:/mnt cxx-debug-extension /bin/sh /mnt/do-copy.sh",
+		"prepack": "npm run build-meta"
 	}
 }

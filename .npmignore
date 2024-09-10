@@ -1,0 +1,6 @@
+/*
+!/dist
+
+/chrome-cxx/**
+!/chrome-cxx/mnt/extension-api.d.ts
+!/chrome-cxx/mnt/extension/*.d.ts

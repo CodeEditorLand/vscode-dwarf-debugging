@@ -6,7 +6,7 @@
 	"devDependencies": {
 		"@chialab/esbuild-plugin-meta-url": "0.18.2",
 		"@types/emscripten": "1.39.13",
-		"@types/node": "22.7.3",
+		"@types/node": "22.7.4",
 		"esbuild": "0.24.0",
 		"rimraf": "6.0.1",
 		"tsx": "4.19.1"

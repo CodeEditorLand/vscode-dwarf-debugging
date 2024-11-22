@@ -46,6 +46,7 @@ function init() {
 				const file = await fs.readFile(
 					join(__dirname, "SymbolsBackend.wasm"),
 				);
+
 				return WebAssembly.compile(file);
 			}
 		})(),
@@ -61,12 +62,15 @@ function enableFetchToLoadFileUris() {
 	const originalFetch = globalThis.fetch;
 	globalThis.fetch = async (...args) => {
 		const url = args[0];
+
 		if (typeof url !== "string" || !url.startsWith("file:///")) {
 			return originalFetch(...args);
 		}
 
 		let found = true;
+
 		let contents: Buffer;
+
 		try {
 			contents = await fs.readFile(fileURLToPath(url));
 		} catch (e) {

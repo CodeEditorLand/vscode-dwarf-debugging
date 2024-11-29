@@ -60,6 +60,7 @@ function init() {
  */
 function enableFetchToLoadFileUris() {
 	const originalFetch = globalThis.fetch;
+
 	globalThis.fetch = async (...args) => {
 		const url = args[0];
 
@@ -75,7 +76,9 @@ function enableFetchToLoadFileUris() {
 			contents = await fs.readFile(fileURLToPath(url));
 		} catch (e) {
 			const cast = e as Error;
+
 			found = false;
+
 			contents = Buffer.from(cast.stack || cast.message);
 		}
 

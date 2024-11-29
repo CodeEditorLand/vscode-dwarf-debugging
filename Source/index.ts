@@ -18,11 +18,13 @@ export type MethodReturn<T extends keyof WorkerInterface> =
 
 export interface IWasmWorker {
 	rpc: WorkerRPC<AsyncHostInterface, WorkerInterface>;
+
 	dispose(): Promise<void>;
 }
 
 export function spawn(hostInterface: AsyncHostInterface): IWasmWorker {
 	const worker = new Worker(join(__dirname, "worker.js"));
+
 	worker.on("message", (data) =>
 		channel.onmessage?.(new MessageEvent("message", { data })),
 	);
